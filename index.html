@@ -7,11 +7,20 @@
         font-family: Arial;
       }
 
-      #chart {
-        max-width: 90%;
-        min-height: 99vh;
-        margin: 0 auto;
+      #chart-wrapper {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
       }
+      #chart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+
     </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -30,11 +39,16 @@
         };
 
         const chart = new google.visualization.LineChart(document.getElementById('chart'));
-        chart.draw( google.visualization.arrayToDataTable(parsedData), options);
+        const draw = () => chart.draw(google.visualization.arrayToDataTable(parsedData), options);
+
+        draw();
+        window.addEventListener('resize', draw);
       });
     </script>
   </head>
   <body>
-    <div id="chart" style=""></div>
+    <div id="chart-wrapper">
+      <div id="chart"></div>
+    </div>
   </body>
 </html>
