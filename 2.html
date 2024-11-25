@@ -82,7 +82,7 @@
     </style>
   </head>
   <body>
-    <div class="chart-wrapper">
+    <div class="chart-wrapper nav-opened">
       <div id="chart"></div>
       <div class="nav">
         <button class="btn btn-light open-nav-btn"><i></i><i></i><i></i></button>
@@ -180,8 +180,8 @@
     };
     const avgData = calculateAvgData(data);
     const axisTitles = {
-      vt: { vAxis: 'V', hAxis: 'T' },
-      at: { vAxis: 'mAh', hAxis: 'T' },
+      vt: { vAxis: 'V', hAxis: 'T, min' },
+      at: { vAxis: 'mAh', hAxis: 'T, min' },
       va: { vAxis: 'V', hAxis: 'mAh' }
     };
 
